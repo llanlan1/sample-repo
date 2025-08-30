@@ -1,17 +1,23 @@
-name: hello_world
+name: hello_world   # Name of the workflow (appears in GitHub Actions tab)
 
 on:
-  push:
+  push:             # Trigger workflow on any push to the repo
 
 jobs:
-  greetings:
-    runs-on: ubuntu-latest
+  greetings:        # Job name
+    runs-on: ubuntu-latest   # Use latest Ubuntu runner
     steps:
+      # Step 1: Print current time to the logs
       - id: s00
-        run: echo "Current time in Github is $(date)"
+        run: echo "Current time in GitHub is $(date)"
+
+      # Step 2: Save current date to an output variable called CURR_DATE
+      - id: s01
+        run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
+
+      # Step 3: Use cowsays-action to display the CURR_DATE
       - id: s02
         uses: mscoutermarsh/cowsays-action@master
         with:
-          text: 'Moo moo cow'
-          color: green
-  
+          text: "Moo moo cow ${{ steps.s01.outputs.CURR_DATE }}" # Access output from step s01
+          color: green   # Customize cow color
