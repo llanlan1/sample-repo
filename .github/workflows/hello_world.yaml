@@ -20,4 +20,4 @@ jobs:
         uses: mscoutermarsh/cowsays-action@master
         with:
           text: "Moo moo cow ${{ steps.s01.outputs.CURR_DATE }}" # Access output from step s01
-          color: green   # Customize cow color
+          color: red   # Customize cow color
