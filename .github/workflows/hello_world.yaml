@@ -19,5 +19,5 @@ jobs:
       - id: s02
         uses: mscoutermarsh/cowsays-action@master
         with:
-          text: "\033[32mMoo moo cow ${{ steps.s01.outputs.CURR_DATE }}\033[0m"
-
+          text: "Moo moo cow ${{ steps.s01.outputs.CURR_DATE }}" # Access output from step s01
+          color: red   # Customize cow color
