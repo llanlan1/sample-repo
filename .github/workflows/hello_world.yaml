@@ -13,5 +13,5 @@ jobs:
         uses: mscoutermarsh/cowsays-action@master
         with:
           text: 'Moo moo cow'
-          color: 'green'
+          color: green
   
